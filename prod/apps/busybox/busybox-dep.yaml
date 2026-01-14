@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: busybox
+  template:
+    metadata:
+      labels:
+        app: busybox
+    spec:
+      containers:
+      - name: busybox
+        image: busybox:latest
+        command: ["sh", "-c", "sleep 3600"]
+        resources:
+          # Limits: Maximum amount of resources the container can use
+          limits:
+            cpu: "100m"      # 1/10th of a core
+            memory: "128Mi"  # 128 Megabytes
+          # Requests: Minimum amount of resources guaranteed to the container
+          requests:
+            cpu: "50m"       # 1/20th of a core
+            memory: "64Mi"   # 64 Megabytes
