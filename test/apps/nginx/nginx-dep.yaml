@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.27  # Latest stable as of early 2026
+        ports:
+        - containerPort: 80
+        resources:
+          # Requests: Minimum resources guaranteed to the container
+          requests:
+            memory: "64Mi"
+            cpu: "100m"      # 1/10th of a CPU core
+          # Limits: Maximum resources the container is allowed to use
+          limits:
+            memory: "128Mi"
+            cpu: "500m"      # 1/2 of a CPU core
