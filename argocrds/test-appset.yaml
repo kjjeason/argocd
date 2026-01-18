@@ -1,11 +1,11 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ApplicationSet
 metadata:
-  name: guestbook
+  name: finance-test-apps
 spec:
   goTemplate: true
-  goTemplateOptions: ["missingkey=error"]
-  #goTemplateOptions: ["missingkey=zero"]
+  #goTemplateOptions: ["missingkey=error"]
+  goTemplateOptions: ["missingkey=zero"]
   generators:
     # matrix 'parent' generator
     - matrix:
