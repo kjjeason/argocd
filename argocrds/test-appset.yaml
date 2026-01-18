@@ -15,7 +15,7 @@ spec:
               repoURL: https://github.com/kjjeason/argocd.git
               revision: HEAD
               files:
-                - path: "test/apps/*/config.json"
+                - path: "test/apps/**/config.json"
           # cluster generator, 'child' #2        
           - clusters:
               selector:
