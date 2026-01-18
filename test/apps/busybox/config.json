@@ -1,0 +1,5 @@
+{
+  "cluster_name": "sitea",
+  "namespace": "busybox-demo",
+  "environment": "test"
+}
