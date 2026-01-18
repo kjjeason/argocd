@@ -24,7 +24,7 @@ spec:
                   cluster: "fintest"
   template:
     metadata:
-      name: "{{ .path.basenameNormalized }}-{{ .metadata.name }}"
+      name: "{{ .path.basenameNormalized }}-{{ .server }}"
     spec:
 #      project: '{{index .metadata.labels "environment"}}'
       project: default
