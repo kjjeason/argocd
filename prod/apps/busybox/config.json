@@ -1,5 +1,5 @@
 {
   "cluster_name": "sitea",
-  "namespace": "nginx-demo",
+  "namespace": "busybox-demo",
   "environment": "test"
 }
