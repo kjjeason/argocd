@@ -28,7 +28,7 @@ spec:
 #      project: '{{index .metadata.labels "environment"}}'
       project: default
       source:
-        repoURL: https://github.com/argoproj/argo-cd.git
+        repoURL: https://github.com/kjjeason/argocd.git
         targetRevision: HEAD
         path: "{{ .path.path }}"
         directory:
