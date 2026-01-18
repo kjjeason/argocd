@@ -1,5 +1,6 @@
 {
   "cluster_name": "sitea",
   "namespace": "nginx-demo",
-  "environment": "test"
+  "environment": "test",
+  "org": "finance"
 }
