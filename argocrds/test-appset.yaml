@@ -20,8 +20,7 @@ spec:
           - clusters:
               selector:
                 matchLabels:
-                  #cluster: '{{ .cluster_name }}'
-                  cluster: "fintest"
+                  cluster: '{{ .cluster_name }}'
   template:
     metadata:
       name: "{{ .path.basenameNormalized }}-{{ .server }}"
