@@ -3,7 +3,7 @@ kind: ApplicationSet
 metadata:
   name: finance-test-apps
 spec:
-  goTemplate: true
+  goTemplate: false
   #goTemplateOptions: ["missingkey=error"]
   goTemplateOptions: ["missingkey=zero"]
   generators:
