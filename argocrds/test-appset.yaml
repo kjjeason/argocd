@@ -21,7 +21,7 @@ spec:
               selector:
                 matchLabels:
                   #cluster: '{{ .cluster_name }}'
-                  cluster: fintest
+                  cluster: "fintest"
   template:
     metadata:
       name: "{{ .path.basenameNormalized }}-{{ .name }}"
