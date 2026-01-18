@@ -1,5 +1,5 @@
 {
-  "cluster_name": "sitea",
+  "cluster_name": "fintest",
   "namespace": "busybox-demo",
   "environment": "test",
   "org": "finance"  
