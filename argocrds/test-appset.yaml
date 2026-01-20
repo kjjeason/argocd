@@ -37,7 +37,7 @@ spec:
         name: "{{ .name }}"
         namespace: '{{ .namespace }}'
         annotations:
-          argocd.argoproj.io/manifest-generate-paths: "{{ .path.path }}"
+          argocd.argoproj.io/manifest-generate-paths: "."
       syncPolicy:
         automated:
           prune: true
