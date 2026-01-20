@@ -24,6 +24,8 @@ spec:
   template:
     metadata:
       name: "{{ .path.basenameNormalized }}-{{ .name }}"
+      annotations:
+        argocd.argoproj.io/manifest-generate-paths: "."  
     spec:
 #      project: '{{index .metadata.labels "environment"}}'
       project: default
@@ -36,8 +38,6 @@ spec:
       destination:
         name: "{{ .name }}"
         namespace: '{{ .namespace }}'
-        annotations:
-          argocd.argoproj.io/manifest-generate-paths: "."
       syncPolicy:
         automated:
           prune: true
