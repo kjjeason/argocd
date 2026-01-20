@@ -1,0 +1,46 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: finance-test-apps
+spec:
+  goTemplate: true
+  goTemplateOptions: ["missingkey=error"]
+  #goTemplateOptions: ["missingkey=zero"]
+  generators:
+    # matrix 'parent' generator
+    - matrix:
+        generators:
+          # git generator, 'child' #1
+          - git:
+              repoURL: https://github.com/kjjeason/argocd.git
+              revision: HEAD
+              files:
+                - path: "prod/apps/**/config.json"
+          # cluster generator, 'child' #2        
+          - clusters:
+              selector:
+                matchLabels:
+                  cluster: '{{ .cluster_name }}'
+  template:
+    metadata:
+      name: "{{ .path.basenameNormalized }}-{{ .name }}-{{ .environment }}"
+      annotations:
+        argocd.argoproj.io/manifest-generate-paths: "."  
+    spec:
+#      project: '{{index .metadata.labels "environment"}}'
+      project: default
+      source:
+        repoURL: https://github.com/kjjeason/argocd.git
+        targetRevision: HEAD
+        path: "{{ .path.path }}"
+        directory:
+          exclude: "config.json"
+      destination:
+        name: "{{ .name }}"
+        namespace: '{{ .namespace }}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
