@@ -1,0 +1,6 @@
+{
+  "cluster_name": "fintest",
+  "namespace": "apache-demo",
+  "environment": "prod",
+  "org": "finance"
+}
